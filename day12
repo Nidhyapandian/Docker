@@ -1,0 +1,71 @@
+Docker Commands
+If other user want permission to run docker commands
+   sudo usermod -aG docker user
+ 
+Docker Images
+To list all docker images
+   docker images
+ 
+To remove docker images,  docker rmi image_name
+ 
+To pull image from docker hub
+    docker pull image
+ 
+To run in detach mode
+   docker run -d image-name
+To run image in attach mode
+  docker attch id
+To run particular version of an image
+  docker run image image_name:tag
+To run image in interactive mode
+  docker run -I image_name
+Containers:
+  docker run --name sql_cont -e MYSQL_ROOT_PASSWORD=admin123 -d mysql
+Execute command in docker container:
+To login into container,
+  docker exec -t container_name /bin/bash  
+  mysql -u root -p
+To view all databases in the system,
+  show databases;
+To create datebase.
+  create database database_name;
+------------------------------------------------------------------------------
+  docker run –name container_name -d -p 8000:80 nginx
+ 
+
+  docker ps -a
+Inspect container:
+ docker inspect container_name
+ 
+
+To check if container is not running or there is some error
+ docker logs container_name
+  docker stats container_name 
+ 
+
+  docker top container_name
+It provides information about the CPU, memory, and swap usage if we run it inside a Docker container
+ 
+Volumes:
+  docker volumes create volume_name
+  docker run -d –name container_name -v volume_name:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql
+ 
+
+ 
+To stop container use Id/Container_name
+  docker stop containername/container_id
+ 
+Docker Networking
+To list all networks:
+   docker network ls
+To create custom bridge networks:
+       docker network create network_name
+ To execute,  docker run -d –name container_name –network network_name image_name
+
+
+ 
+ 
+ 
+To create custom host network,   docker  run -d –name network_name –network host –restart always image_name 
+---------------------------------------------------------------------------------
+
